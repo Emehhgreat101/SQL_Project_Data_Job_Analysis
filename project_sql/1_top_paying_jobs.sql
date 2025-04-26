@@ -5,23 +5,48 @@ Question: What are the top-paying data analyst jobs?
 - Include name of companies
 */
 
-SELECT
+/*
+SELECT *
+FROM job_postings_fact
+LIMIT 5
+
+SELECT *
+FROM company_dim
+LIMIT 5
+*/
+
+SELECT 
     job_title_short,
     job_location,
-    job_schedule_type,
-    job_work_from_home,
-    job_posted_date::DATE,
-    job_no_degree_mention,
-    salary_year_avg,
-    name AS company_name
+    company_dim.name AS company,
+    salary_year_avg
 FROM 
     job_postings_fact
 LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id    
-WHERE 
-    job_title_short = 'Data Analyst' AND
+WHERE
+    job_title_short = 'Data Analyst' AND 
     (job_location = 'Germany' OR 
-    job_location = 'Japan') AND
+    job_location = 'Japan') AND 
     salary_year_avg IS NOT NULL
 ORDER BY
     salary_year_avg DESC
-LIMIT 5;   
+LIMIT
+    5
+
+SELECT 
+    job_title,
+    job_via,
+    job_schedule_type,
+    search_location,
+    salary_hour_avg,
+    company_dim.name AS company,
+    company_dim.link_google
+FROM job_postings_fact
+INNER JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
+WHERE 
+    job_title_short = 'Data Analyst' AND
+    job_location = 'Anywhere'AND
+    salary_rate = 'hour'
+ORDER BY
+    salary_hour_avg DESC
+ 

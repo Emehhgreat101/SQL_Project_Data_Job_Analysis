@@ -24,7 +24,9 @@ WITH top_paying_jobs AS (
         job_title_short,
         job_location,
         salary_year_avg,
-        name AS company_name
+        salary_rate,
+        name AS company_name,
+        link_google
     FROM 
         job_postings_fact
     LEFT JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id    
