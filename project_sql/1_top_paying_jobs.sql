@@ -31,22 +31,4 @@ WHERE
 ORDER BY
     salary_year_avg DESC
 LIMIT
-    5
-
-SELECT 
-    job_title,
-    job_via,
-    job_schedule_type,
-    search_location,
-    salary_hour_avg,
-    company_dim.name AS company,
-    company_dim.link_google
-FROM job_postings_fact
-INNER JOIN company_dim ON job_postings_fact.company_id = company_dim.company_id
-WHERE 
-    job_title_short = 'Data Analyst' AND
-    job_location = 'Anywhere'AND
-    salary_rate = 'hour'
-ORDER BY
-    salary_hour_avg DESC
- 
+    10;

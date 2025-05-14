@@ -11,7 +11,6 @@ Question: What are the top-paying data analyst jobs with thier skills and compan
 WITH top_jobs AS (
     SELECT 
         job_id,
-        job_title_short,
         company_dim.name AS company,
         job_location,
         salary_year_avg
