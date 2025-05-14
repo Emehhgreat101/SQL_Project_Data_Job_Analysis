@@ -61,6 +61,7 @@ Here's the breakdown of the top data analyst jobs in 2023:
 *Chart representation of the average salary of top-paying jobs in Germany and Japan*
 
 
+
 ### **2. Skills for Top Paying Jobs**
 
 To understand what skills are required for the top_paying jobs specifically in Germany & Japan, i joined the job postings with the skills data providing insights into what employers value for high-compensation roles.
